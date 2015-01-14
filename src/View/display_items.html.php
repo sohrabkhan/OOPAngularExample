@@ -13,11 +13,11 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+        <script src="src/View/ItemController.js"></script>
         <title>Press Easyon - Items Display</title>
     </head>
-    <body>
-
-        <div class="row">
+    <body ng-app="Sohrab">
+        <div class="row top-heading">
             <div class="col-lg-12">
                 <a href="#">press easyon</a>
             </div>
@@ -34,27 +34,24 @@
             </div>
         </nav>
         <div class="continer">
-            <div class="row" ng-app="" ng-controller="itemController">
+            <div class="row" ng-controller="ItemController">
                 <ul>
                     <li ng-repeat="item in items">
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                            <img ng-src="{{ item.image_url }}" class="item-image" />
-                            <span></span>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 item-centered" >
+                            <div class="each-item">
+                                <img ng-src="{{ item.image_url }}" class="item-image" />
+                                <span class="item-title-span">{{ item.title }}</span>
+                                <div class="price-counter">
+                                    <span class="price">£{{ item.price }}</span>
+                                </div>
+                            </div>
+
                         </div>
                     </li>
+                    {{counter}}
                 </ul>
 
             </div>
         </div>
     </body>
-    <script>
-        function itemController($scope)
-        {
-            $scope.items = [
-                <?php foreach ($itemsList as $item): ?>
-                {title: "<?php echo $item->getTitle(); ?>", image_url: "<?php echo $item->getImageUrl(); ?>"},
-                <?php endforeach; ?>
-            ];
-        }
-    </script>
 </html>
