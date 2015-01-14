@@ -13,7 +13,8 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
-        <script src="src/View/ItemController.js"></script>
+        <script src="src/Assets/angular-timer.min.js"></script>
+        <script src="src/Assets/ItemController.js"></script>
         <title>Press Easyon - Items Display</title>
     </head>
     <body ng-app="Sohrab">
@@ -43,12 +44,12 @@
                                 <span class="item-title-span">{{ item.title }}</span>
                                 <div class="price-counter">
                                     <span class="price">£{{ item.price }}</span>
+                                    <span class="countdown">{{ item.date_diff }}</span>
                                 </div>
                             </div>
 
                         </div>
                     </li>
-                    {{counter}}
                 </ul>
 
             </div>
