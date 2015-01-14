@@ -34,20 +34,27 @@
             </div>
         </nav>
         <div class="continer">
-            <div class="row">
-                <?php foreach ($itemsList as $item): ?>
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                        <div class="each-item">
-                            <div class="item-image-div centered">
-                                <img src="<?php echo $item->getImageUrl(); ?>" class="item-image centered" />
-                            </div>
-                            <div class="item-title-div">
-                                <?php echo $item->getTitle(); ?>
-                            </div>
+            <div class="row" ng-app="" ng-controller="itemController">
+                <ul>
+                    <li ng-repeat="item in items">
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <img ng-src="{{ item.image_url }}" class="item-image" />
+                            <span></span>
                         </div>
-                    </div>
-                <?php endforeach; ?>
+                    </li>
+                </ul>
+
             </div>
         </div>
     </body>
+    <script>
+        function itemController($scope)
+        {
+            $scope.items = [
+                <?php foreach ($itemsList as $item): ?>
+                {title: "<?php echo $item->getTitle(); ?>", image_url: "<?php echo $item->getImageUrl(); ?>"},
+                <?php endforeach; ?>
+            ];
+        }
+    </script>
 </html>
