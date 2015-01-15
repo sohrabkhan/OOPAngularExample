@@ -13,14 +13,13 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
-        <script src="src/Assets/angular-timer.min.js"></script>
         <script src="src/Assets/ItemController.js"></script>
         <title>Press Easyon - Items Display</title>
     </head>
     <body ng-app="Sohrab">
         <div class="row top-heading">
             <div class="col-lg-12">
-                <a href="#">press easyon</a>
+                <a href="#" class="logo-text">press easyon</a>
             </div>
         </div>
         <nav class="navbar nav-bar-custom-bg">
@@ -43,8 +42,13 @@
                                 <img ng-src="{{ item.image_url }}" class="item-image" />
                                 <span class="item-title-span">{{ item.title }}</span>
                                 <div class="price-counter">
-                                    <span class="price">£{{ item.price }}</span>
-                                    <span class="countdown">{{ item.date_diff }}</span>
+                                    <div class="price">
+                                        <span class="div-price">£{{ item.price }}</span>
+                                        <span class="countdown icon-clock">{{ item.hours }}h {{ item.minutes }}m</span>
+                                    </div>
+                                </div>
+                                <div class="button-div">
+                                    <button class="btn btn-success">View and steal this deal</button>
                                 </div>
                             </div>
 

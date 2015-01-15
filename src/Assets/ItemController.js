@@ -19,22 +19,11 @@ app.controller("ItemController", function($scope, $http, $timeout) {
                 console.log(hours);
                 console.log("minutes"+ minutes);
 
-                $scope.items.push({title: data[i]['title'], image_url: data[i]['image_url'], hours: hours, date_diff: dateDiff, expires_at: unixTime, price: data[i]['price'], offer_price: data[i]['offer_price']});
+                $scope.items.push({title: data[i]['title'], image_url: data[i]['image_url'], hours: hours, minutes: minutes, date_diff: dateDiff, expires_at: unixTime, price: data[i]['price'], offer_price: data[i]['offer_price']});
             }
             console.log($scope.items);
         }).
         error(function(data, status, headers, config) {
             console.log("Error occured");
         });
-
-    $scope.counter = 0;
-    $scope.onTimeout = function(){
-        $scope.counter--;
-        mytimeout = $timeout($scope.onTimeout,1000);
-    }
-    var mytimeout = $timeout($scope.onTimeout,1000);
-
-    $scope.stop = function(){
-        $timeout.cancel(mytimeout);
-    }
 });
