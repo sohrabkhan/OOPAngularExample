@@ -1,5 +1,5 @@
 # OOPAngularExample
-An OOP application that I did to demonstrate my AngularJS + fronted skills and obviously OOP skills
+An OOP application that I did to demonstrate my AngularJS + fronted skills (bootstrap) and obviously OOP skills
 
 ### Running the app ###
 Just git clone and then point your browser to index.php.
